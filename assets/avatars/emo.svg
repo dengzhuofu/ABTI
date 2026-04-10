@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320" height="320" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="avatar emo">
+  <defs>
+    <linearGradient id="bodyGrad-emo" x1="0" x2="1">
+      <stop offset="0%" stop-color="#8ca6d6"/>
+      <stop offset="100%" stop-color="#7a94c4"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="18" width="152" height="204" rx="34" fill="#d7def2" opacity=".28"/>
+  <g opacity=".92"><circle cx="146" cy="40" r="14" fill="#d7def2"/><circle cx="162" cy="44" r="12" fill="#d7def2"/><circle cx="132" cy="46" r="11" fill="#d7def2"/></g>
+  <g>
+    <g transform="rotate(-4 52 146)">
+      <polygon points="54,126 76,126 70,176 44,174" fill="url(#bodyGrad-emo)"/>
+      <polygon points="42,172 54,170 58,190 44,194 34,182" fill="#efd6ca"/>
+    </g>
+    <g transform="rotate(4 148 146)">
+      <polygon points="124,126 146,126 156,174 130,176" fill="url(#bodyGrad-emo)"/>
+      <polygon points="146,170 158,174 164,192 148,196 138,184" fill="#efd6ca"/>
+    </g>
+    <polygon points="74,122 126,128 120,186 70,182" fill="url(#bodyGrad-emo)"/>
+    <polygon points="72,186 92,186 88,224 64,224" fill="#829ccc"/>
+    <polygon points="108,186 128,186 136,224 112,224" fill="#86a0d0"/>
+    <polygon points="58,220 90,220 82,234 54,234" fill="#748ebe"/>
+    <polygon points="112,220 146,220 138,234 108,234" fill="#748ebe"/>
+    <polygon points="62,50 138,50 132,126 68,126" fill="#efd6ca"/>
+    <polygon points="54,52 72,28 134,32 146,56 126,54 110,70 86,54" fill="#4a5066"/>
+    <polygon points="62,52 100,52 100,126 70,126" fill="rgba(255,255,255,0.05)"/>
+    <circle cx="84" cy="82" r="4" fill="#243a33"/><circle cx="116" cy="82" r="4" fill="#243a33"/>
+    <path d="M90 105 Q105 95 120 104" stroke="#243a33" stroke-width="4" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>

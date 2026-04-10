@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320" height="320" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="avatar jiahao">
+  <defs>
+    <linearGradient id="bodyGrad-jiahao" x1="0" x2="1">
+      <stop offset="0%" stop-color="#6ab89e"/>
+      <stop offset="100%" stop-color="#58a68c"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="18" width="152" height="204" rx="34" fill="#d7efe6" opacity=".28"/>
+  <path d="M48 74 L63 64 L71 74 L57 84 Z" fill="#ffffff" opacity=".8"/><path d="M51 73 Q57 70 62 74" stroke="#243a33" stroke-width="2" fill="none"/>
+  <g>
+    <g >
+      <polygon points="54,126 76,126 70,176 44,174" fill="url(#bodyGrad-jiahao)"/>
+      <polygon points="42,172 54,170 58,190 44,194 34,182" fill="#f1d3bf"/>
+    </g>
+    <g >
+      <polygon points="124,126 146,126 156,174 130,176" fill="url(#bodyGrad-jiahao)"/>
+      <polygon points="146,170 158,174 164,192 148,196 138,184" fill="#f1d3bf"/>
+    </g>
+    <polygon points="72,122 126,122 136,186 64,186" fill="url(#bodyGrad-jiahao)"/>
+    <polygon points="72,186 92,186 88,224 64,224" fill="#60ae94"/>
+    <polygon points="108,186 128,186 136,224 112,224" fill="#64b298"/>
+    <polygon points="58,220 90,220 82,234 54,234" fill="#52a086"/>
+    <polygon points="112,220 146,220 138,234 108,234" fill="#52a086"/>
+    <polygon points="62,50 138,50 132,126 68,126" fill="#f1d3bf"/>
+    <polygon points="52,54 72,30 136,32 148,56 128,58 100,42 74,58" fill="#54645d"/>
+    <polygon points="62,52 100,52 100,126 70,126" fill="rgba(255,255,255,0.05)"/>
+    <circle cx="84" cy="82" r="4" fill="#243a33"/><circle cx="116" cy="82" r="4" fill="#243a33"/>
+    <path d="M90 99 Q104 108 120 100" stroke="#243a33" stroke-width="4" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>

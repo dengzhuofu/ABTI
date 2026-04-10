@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320" height="320" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="avatar explosive">
+  <defs>
+    <linearGradient id="bodyGrad-explosive" x1="0" x2="1">
+      <stop offset="0%" stop-color="#e98a6f"/>
+      <stop offset="100%" stop-color="#d7785d"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="18" width="152" height="204" rx="34" fill="#ffd8cb" opacity=".28"/>
+  <path d="M149 38 L155 51 L169 57 L155 62 L149 76 L143 62 L129 57 L143 51 Z" fill="#ffbc96"/>
+  <g>
+    <g >
+      <polygon points="54,126 76,126 70,176 44,174" fill="url(#bodyGrad-explosive)"/>
+      <polygon points="42,172 54,170 58,190 44,194 34,182" fill="#f0ccb2"/>
+    </g>
+    <g >
+      <polygon points="124,126 146,126 156,174 130,176" fill="url(#bodyGrad-explosive)"/>
+      <polygon points="146,170 158,174 164,192 148,196 138,184" fill="#f0ccb2"/>
+    </g>
+    <polygon points="72,122 126,122 136,186 64,186" fill="url(#bodyGrad-explosive)"/>
+    <polygon points="72,186 92,186 88,224 64,224" fill="#df8065"/>
+    <polygon points="108,186 128,186 136,224 112,224" fill="#e38469"/>
+    <polygon points="58,220 90,220 82,234 54,234" fill="#d17257"/>
+    <polygon points="112,220 146,220 138,234 108,234" fill="#d17257"/>
+    <polygon points="62,50 138,50 132,126 68,126" fill="#f0ccb2"/>
+    <polygon points="52,54 72,30 136,32 148,56 128,58 100,42 74,58" fill="#5e5452"/>
+    <polygon points="62,52 100,52 100,126 70,126" fill="rgba(255,255,255,0.05)"/>
+    <path d="M78 82 L92 78" stroke="#243a33" stroke-width="4" stroke-linecap="round"/><path d="M108 78 L122 82" stroke="#243a33" stroke-width="4" stroke-linecap="round"/>
+    <path d="M88 104 Q104 94 122 100" stroke="#243a33" stroke-width="4" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>

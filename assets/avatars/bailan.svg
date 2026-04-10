@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320" height="320" viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="avatar bailan">
+  <defs>
+    <linearGradient id="bodyGrad-bailan" x1="0" x2="1">
+      <stop offset="0%" stop-color="#b5c8a1"/>
+      <stop offset="100%" stop-color="#a3b68f"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="18" width="152" height="204" rx="34" fill="#e6efdc" opacity=".28"/>
+  <text x="140" y="46" font-size="24" font-family="Space Grotesk, sans-serif" fill="#8aa49b">Zz</text>
+  <g>
+    <g transform="rotate(-4 52 146)">
+      <polygon points="54,126 76,126 70,176 44,174" fill="url(#bodyGrad-bailan)"/>
+      <polygon points="42,172 54,170 58,190 44,194 34,182" fill="#ead7c8"/>
+    </g>
+    <g transform="rotate(4 148 146)">
+      <polygon points="124,126 146,126 156,174 130,176" fill="url(#bodyGrad-bailan)"/>
+      <polygon points="146,170 158,174 164,192 148,196 138,184" fill="#ead7c8"/>
+    </g>
+    <polygon points="74,122 126,128 120,186 70,182" fill="url(#bodyGrad-bailan)"/>
+    <polygon points="72,186 92,186 88,224 64,224" fill="#abbe97"/>
+    <polygon points="108,186 128,186 136,224 112,224" fill="#afc29b"/>
+    <polygon points="58,220 90,220 82,234 54,234" fill="#9db089"/>
+    <polygon points="112,220 146,220 138,234 108,234" fill="#9db089"/>
+    <polygon points="62,50 138,50 132,126 68,126" fill="#ead7c8"/>
+    <polygon points="54,52 70,38 138,38 146,60 126,58 104,66 82,58" fill="#6f7769"/>
+    <polygon points="62,52 100,52 100,126 70,126" fill="rgba(255,255,255,0.05)"/>
+    <line x1="78" y1="82" x2="90" y2="82" stroke="#243a33" stroke-width="4" stroke-linecap="round"/><line x1="110" y1="82" x2="122" y2="82" stroke="#243a33" stroke-width="4" stroke-linecap="round"/>
+    <path d="M92 103 Q106 108 118 103" stroke="#243a33" stroke-width="4" stroke-linecap="round" fill="none" opacity=".7"/>
+  </g>
+</svg>
