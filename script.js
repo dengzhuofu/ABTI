@@ -1295,3 +1295,39 @@ function unlockHiddenPersona() {
     setText(elements.hiddenPersona, "终极抽象体");
   }
 }
+
+function renderRanking(activeId) {
+  if (!elements.rankingList) return;
+  const ranking = getRankingData();
+  const total = Object.values(ranking).reduce((sum, value) => sum + value, 0) || 1;
+  const items = [...enrichedPersonalities]
+    .map((item) => ({
+      item,
+      count: ranking[item.id] ?? 0,
+      percent: Math.round(((ranking[item.id] ?? 0) / total) * 100),
+    }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 5);
+
+  setHtml(elements.rankingList, items.map((entry, index) => `
+    <div class="rank-item">
+      <div class="rank-left">
+        <span class="rank-num">${index + 1}</span>
+        <div>
+          <strong>${escapeHtml(entry.item.name)}${entry.item.id === activeId ? " / current" : ""}</strong>
+          <span>${escapeHtml(entry.item.alias)}</span>
+        </div>
+      </div>
+      <strong>${entry.percent}%</strong>
+    </div>
+  `).join(""));
+}
+
+function restoreLastResultHint() {
+  const stored = getStoredJson(STORAGE_KEYS.lastResult);
+  if (!stored) return;
+  if (elements.lastResult) {
+    elements.lastResult.classList.remove("hidden");
+  }
+  setText(elements.lastResultText, `${stored.primary.name} / ${stored.code}`);
+}
