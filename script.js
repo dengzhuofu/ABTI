@@ -134,6 +134,18 @@ function createScoreMap() {
   };
 }
 
+function setText(element, value) {
+  if (element) {
+    element.textContent = value;
+  }
+}
+
+function setHtml(element, value) {
+  if (element) {
+    element.innerHTML = value;
+  }
+}
+
 function bindEvents() {
   elements.startTestBtn?.addEventListener("click", startTest);
   elements.topbarAction?.addEventListener("click", () => {
@@ -168,7 +180,7 @@ function bindEvents() {
 }
 
 function toggleNativeShare() {
-  if (!navigator.share) {
+  if (!navigator.share && elements.nativeShareBtn) {
     elements.nativeShareBtn.textContent = "复制分享文案";
   }
 }
@@ -1002,4 +1014,139 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+function renderResult() {
+  const { primary, secondary, code, normalized, abstractIndex, hiddenLabel, shareIndex, savedAt } = state.result;
+  renderAvatar(primary.id);
+  setText(elements.resultCode, code);
+  setText(elements.resultCodeDetail, codeToText(code));
+  setText(elements.resultName, primary.name);
+  setText(elements.resultAlias, `${primary.alias} 路 ${primary.shortCode}`);
+  setText(elements.resultDescription, primary.description);
+  setHtml(elements.resultTags, primary.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join(""));
+  setText(elements.dangerNote, primary.dangerNote);
+  setText(elements.memeLevel, `姊楁劅 ${primary.memeLevel}`);
+  setText(elements.abstractIndex, `${abstractIndex}%`);
+  setText(elements.hiddenPersona, hiddenLabel);
+  setText(elements.shortCode, primary.shortCode);
+  setText(elements.secondaryMatch, secondary?.name ?? "");
+  setText(elements.shareIndex, `${shareIndex}%`);
+  setText(elements.lastSavedAt, savedAt);
+  renderMetrics(normalized);
+  state.aiCopyIndex = 0;
+  state.compareIndex = 0;
+  renderAiCopy();
+  renderCompare();
+  renderRanking(primary.id);
+}
+
+function renderMetrics(scores) {
+  const allMetrics = [...DIMENSIONS, ...EXTRA_DIMENSIONS];
+  setHtml(elements.metricList, allMetrics.map((metric) => {
+    const value = Math.round(scores[metric.key]);
+    return `
+      <div class="metric-row">
+        <div class="metric-head">
+          <span>${metric.label}</span>
+          <strong>${value}%</strong>
+        </div>
+        <div class="metric-fill"><span style="width:${value}%"></span></div>
+        <div class="metric-foot">
+          <span>${metric.lowText}</span>
+          <span>${metric.highText}</span>
+        </div>
+      </div>
+    `;
+  }).join(""));
+}
+
+function renderAiCopy() {
+  if (!elements.aiCopyText || !state.result?.aiCopies?.length) return;
+  setText(elements.aiCopyText, state.result.aiCopies[state.aiCopyIndex % state.result.aiCopies.length]);
+}
+
+function renderCompare() {
+  if (!elements.duoMatch || !state.result?.compareOptions?.length) return;
+  const item = state.result.compareOptions[state.compareIndex % state.result.compareOptions.length];
+  setHtml(elements.duoMatch, `
+    <strong class="duo-title">浣狅細${escapeHtml(state.result.primary.name)} 锝?鏈嬪弸锛?{escapeHtml(item.friend.name)}</strong>
+    <p class="duo-sub">${escapeHtml(item.summary)}</p>
+    <p>${escapeHtml(item.conclusion)}</p>
+  `);
+}
+
+function renderRanking(activeId) {
+  if (!elements.rankingList) return;
+  const ranking = getRankingData();
+  const total = Object.values(ranking).reduce((sum, value) => sum + value, 0) || 1;
+  const items = [...enrichedPersonalities]
+    .map((item) => ({
+      item,
+      count: ranking[item.id] ?? 0,
+      percent: Math.round(((ranking[item.id] ?? 0) / total) * 100),
+    }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 5);
+
+  setHtml(elements.rankingList, items.map((entry, index) => `
+    <div class="rank-item">
+      <div class="rank-left">
+        <span class="rank-num">${index + 1}</span>
+        <div>
+          <strong>${escapeHtml(entry.item.name)}${entry.item.id === activeId ? " 路 浣? " : ""}</strong>
+          <span>${escapeHtml(entry.item.alias)}</span>
+        </div>
+      </div>
+      <strong>${entry.percent}%</strong>
+    </div>
+  `).join(""));
+}
+
+function restoreLastResultHint() {
+  const stored = getStoredJson(STORAGE_KEYS.lastResult);
+  if (!stored) return;
+  if (elements.lastResult) {
+    elements.lastResult.classList.remove("hidden");
+  }
+  setText(elements.lastResultText, `${stored.primary.name} 路 ${stored.code}`);
+}
+
+async function openShareModal() {
+  if (!state.result) return;
+  const url = await drawShareCanvas();
+  if (elements.sharePreview) {
+    elements.sharePreview.src = url;
+  }
+  if (elements.downloadShareBtn) {
+    elements.downloadShareBtn.href = url;
+  }
+  if (elements.shareModal) {
+    elements.shareModal.classList.remove("hidden");
+  }
+  unlockHiddenPersona();
+}
+
+function closeShareModal() {
+  if (elements.shareModal) {
+    elements.shareModal.classList.add("hidden");
+  }
+}
+
+function unlockHiddenPersona() {
+  setStoredValue(STORAGE_KEYS.hidden, "1");
+  if (state.result) {
+    state.result.hiddenLabel = "缁堟瀬鎶借薄浣?";
+    setText(elements.hiddenPersona, "缁堟瀬鎶借薄浣?");
+  }
+}
+
+function showToast(message) {
+  clearTimeout(toastTimer);
+  if (!elements.toast) return;
+  elements.toast.textContent = message;
+  elements.toast.classList.add("is-visible");
+  toastTimer = setTimeout(() => {
+    elements.toast.classList.remove("is-visible");
+  }, 1800);
 }
