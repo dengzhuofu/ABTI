@@ -20,7 +20,6 @@
       <span class="brand-mark">ABTI</span>
       <div>
         <strong>ABTI</strong>
-        <!-- <p>13 种互联网离谱人类 · 20 题快速出图</p> -->
       </div>
     </div>
     <button class="ghost-button ghost-compact" id="topbarAction">开始测试</button>
@@ -32,56 +31,11 @@
         <div class="hero-copy">
           <p class="kicker">ABTI</p>
           <h1>测出你是哪种<br>抽象人格。</h1>
-          <!-- <p class="hero-text">不是严肃量表，是更适合截图发圈的互联网人格海报。移动端优先设计，20 题答完直接出结果、文案和分享图。</p> -->
           <div class="hero-actions">
             <button class="primary-button" id="startTestBtn">开始测试</button>
-            <!-- <button class="secondary-button" id="jumpPreviewBtn">先看玩法</button> -->
           </div>
-          <!-- <div class="hero-meta">
-            <span>4 维 ABTI 编码</span>
-            <span>13 种人格匹配</span>
-            <span>支持结果海报导出</span>
-          </div> -->
         </div>
-
-        <!-- <div class="hero-poster">
-          <span class="poster-chip">移动端优先</span>
-          <div class="poster-card">
-            <p class="poster-label">示例人格</p>
-            <div class="poster-code" id="posterCode">XABP</div>
-            <h2 id="posterName">嘉豪型抽象圣体</h2>
-            <p class="poster-alias" id="posterAlias">混乱哲学家</p>
-            <p class="poster-desc" id="posterDesc">表达跳跃、逻辑飘忽，但气势很足。越说越抽象，越抽象越有记忆点。</p>
-            <div class="poster-tags" id="posterTags"></div>
-          </div>
-        </div> -->
       </section>
-
-      <!-- <section class="support-band" id="previewSection">
-        <div class="support-item">
-          <p>1 分钟内完成</p>
-          <strong>点选即下一题</strong>
-        </div>
-        <div class="support-item">
-          <p>结果可分享</p>
-          <strong>生成 4:5 海报</strong>
-        </div>
-        <div class="support-item">
-          <p>传播导向设计</p>
-          <strong>结果文案 + 好友对比</strong>
-        </div>
-      </section> -->
-
-      <!-- <section class="preview-panel">
-        <div class="section-head">
-          <div>
-            <p class="section-label">样本人设</p>
-            <h3>先看一眼这个世界都有哪些离谱人类</h3>
-          </div>
-          <button class="ghost-button small" id="shufflePreviewBtn">换一组</button>
-        </div>
-        <div class="preview-grid" id="previewCards"></div>
-      </section> -->
 
       <section class="last-result hidden" id="lastResult">
         <div>
@@ -97,13 +51,13 @@
         <div class="quiz-top">
           <div>
             <p class="section-label">正在测试</p>
-            <h2 id="progressText">01 / 20</h2>
+            <h2 id="progressText">01 / 25</h2>
           </div>
           <button class="text-button" id="restartInlineBtn">重新开始</button>
         </div>
 
         <div class="progress-meta">
-          <span id="progressCaption">点击选项后自动下一题</span>
+          <span id="progressCaption">已完成 0%</span>
           <span id="liveCode">趋势码 ----</span>
         </div>
         <div class="progress-track">
@@ -113,7 +67,7 @@
         <article class="question-panel">
           <p class="question-kicker" id="questionBadge">场景 01</p>
           <h3 id="questionTitle">问题加载中...</h3>
-          <p class="question-tip">按第一反应选就行，越不正经越接近真实互联网人格。</p>
+          <p class="question-tip">按第一反应选就行，别想太久，越真实越准。</p>
           <div class="options" id="optionsList"></div>
         </article>
       </div>
@@ -128,15 +82,15 @@
               <div class="result-avatar" id="resultAvatar" aria-label="人格形象"></div>
             </div>
             <div class="result-code" id="resultCode">XABP</div>
-            <p class="result-code-detail" id="resultCodeDetail">爆炸 × 活跃 × 抽象 × 自信</p>
+            <p class="result-code-detail" id="resultCodeDetail">爆炸 · 活跃 · 抽象 · 自信</p>
             <div class="result-title-row">
               <div>
                 <p class="section-label">ABTI</p>
-                <h2 id="resultName">嘉豪型抽象圣体</h2>
+                <h2 id="resultName">人格名称</h2>
               </div>
               <span class="meme-level" id="memeLevel">梗感 S</span>
             </div>
-            <p class="result-alias" id="resultAlias">混乱哲学家</p>
+            <p class="result-alias" id="resultAlias">人格别名</p>
             <p class="result-description" id="resultDescription"></p>
             <div class="tag-row" id="resultTags"></div>
             <div class="danger-box">
@@ -168,13 +122,13 @@
             <div class="section-head">
               <div>
                 <p class="section-label">五维画像</p>
-                <h3>为什么这个结果像你</h3>
+                <h3>为什么是这个结果</h3>
               </div>
             </div>
             <div class="metric-list" id="metricList"></div>
           </section>
 
-          <!-- <section class="panel">
+          <section class="panel">
             <div class="section-head">
               <div>
                 <p class="section-label">AI 发圈文案</p>
@@ -183,24 +137,24 @@
               <button class="ghost-button small" id="refreshCopyBtn">换一句</button>
             </div>
             <div class="quote-box" id="aiCopyText"></div>
-          </section> -->
+          </section>
 
-          <!-- <section class="panel">
+          <section class="panel">
             <div class="section-head">
               <div>
                 <p class="section-label">好友对比玩法</p>
-                <h3>适合拉人继续测</h3>
+                <h3>拉朋友一起测更有意思</h3>
               </div>
-              <button class="ghost-button small" id="refreshCompareBtn">换个朋友</button>
+              <button class="ghost-button small" id="refreshCompareBtn">换一个</button>
             </div>
             <div class="duo-box" id="duoMatch"></div>
-          </section> -->
+          </section>
 
-          <!-- <section class="panel">
+          <section class="panel">
             <div class="section-head">
               <div>
                 <p class="section-label">今日人格 TOP</p>
-                <h3>本机本日排行榜</h3>
+                <h3>本机当日排行</h3>
               </div>
             </div>
             <div id="rankingList"></div>
@@ -225,7 +179,7 @@
                 <strong id="lastSavedAt"></strong>
               </div>
             </div>
-          </section> -->
+          </section>
         </div>
       </div>
     </section>
@@ -237,7 +191,7 @@
       <div class="section-head">
         <div>
           <p class="section-label">分享图已生成</p>
-          <h3>适合小红书 / 朋友圈 / 群聊转发</h3>
+          <h3>适合发朋友圈、群聊和社交平台</h3>
         </div>
         <button class="text-button" id="closeShareModal">关闭</button>
       </div>

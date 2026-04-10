@@ -117,6 +117,7 @@ function createInitialState() {
   return {
     currentQuestion: 0,
     answers: [],
+    absurdCount: 0,
     rawScores: createScoreMap(),
     result: null,
     aiCopyIndex: 0,
@@ -289,6 +290,9 @@ function selectOption(index) {
   const option = question.options[index];
 
   state.answers.push({ questionId: question.id, optionIndex: index, text: option.text });
+  if (option.absurd) {
+    state.absurdCount += 1;
+  }
   Object.entries(option.weights).forEach(([key, value]) => {
     state.rawScores[key] += value;
   });
@@ -306,9 +310,18 @@ function finishTest() {
   const normalized = normalizeScores(state.rawScores);
   const code = deriveCode(normalized);
   const ranked = getRankedPersonalities(normalized, code);
-  const primary = ranked[0];
-  const secondary = ranked[1];
-  const abstractIndex = calculateAbstractIndex(normalized);
+  const absurdRatio = state.answers.length ? state.absurdCount / state.answers.length : 0;
+  const forcedChaos = absurdRatio >= 0.7;
+  const chaosPersona = enrichedPersonalities.find((item) => item.id === "chaoti");
+  const fallbackPrimary = ranked[0];
+  const primary = forcedChaos && chaosPersona ? chaosPersona : fallbackPrimary;
+  const secondary = forcedChaos
+    ? (ranked.find((item) => item.id !== primary.id) || fallbackPrimary)
+    : ranked[1];
+  const abstractIndex = forcedChaos
+    ? Math.max(96, calculateAbstractIndex(normalized))
+    : calculateAbstractIndex(normalized);
+  const shareIndex = forcedChaos ? 100 : calculateShareIndex(primary, abstractIndex);
 
   state.result = {
     normalized,
@@ -316,10 +329,13 @@ function finishTest() {
     primary,
     secondary,
     abstractIndex,
+    absurdRatio,
+    absurdCount: state.absurdCount,
+    forcedChaos,
     aiCopies: buildAiCopies(primary, code, abstractIndex),
     compareOptions: buildCompareOptions(primary, normalized),
     hiddenLabel: getHiddenPersonaLabel(abstractIndex),
-    shareIndex: calculateShareIndex(primary, abstractIndex),
+    shareIndex,
     savedAt: new Date().toLocaleString("zh-CN", { hour12: false }),
   };
 
@@ -1149,4 +1165,133 @@ function showToast(message) {
   toastTimer = setTimeout(() => {
     elements.toast.classList.remove("is-visible");
   }, 1800);
+}
+
+function toggleNativeShare() {
+  if (!navigator.share && elements.nativeShareBtn) {
+    elements.nativeShareBtn.textContent = "复制分享文案";
+  }
+}
+
+function showScreen(name) {
+  [elements.startScreen, elements.quizScreen, elements.resultScreen].forEach((screen) => {
+    screen.classList.remove("is-active");
+  });
+
+  const target = name === "quiz" ? elements.quizScreen : name === "result" ? elements.resultScreen : elements.startScreen;
+  target.classList.add("is-active");
+  setText(elements.topbarAction, name === "start" ? "开始测试" : "重新开始");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function renderQuestion() {
+  const question = questions[state.currentQuestion];
+  const percent = (state.currentQuestion / questions.length) * 100;
+  setText(elements.progressText, `${String(state.currentQuestion + 1).padStart(2, "0")} / ${questions.length}`);
+  setText(elements.progressCaption, `已完成 ${Math.round(percent)}%`);
+  if (elements.progressFill) {
+    elements.progressFill.style.width = `${percent}%`;
+  }
+  setText(elements.questionBadge, `场景 ${String(state.currentQuestion + 1).padStart(2, "0")}`);
+  setText(elements.questionTitle, question.title);
+  setText(elements.liveCode, `趋势码 ${previewCodeFromRaw(state.rawScores)}`);
+  setHtml(elements.optionsList, question.options.map((option, index) => `
+    <button class="option-button" type="button" data-index="${index}">
+      <span class="option-index">${String.fromCharCode(65 + index)}</span>
+      <span>${escapeHtml(option.text)}</span>
+    </button>
+  `).join(""));
+
+  [...elements.optionsList.querySelectorAll(".option-button")].forEach((button) => {
+    button.addEventListener("click", () => selectOption(Number(button.dataset.index)));
+  });
+}
+
+function getHiddenPersonaLabel(abstractIndex) {
+  const unlocked = getStoredValue(STORAGE_KEYS.hidden) === "1";
+  if (abstractIndex >= 85 || unlocked) {
+    return "终极抽象体";
+  }
+  return "分享后解锁";
+}
+
+function buildAiCopies(primary, code, abstractIndex) {
+  if (primary.id === "chaoti") {
+    return [
+      `你已解锁隐藏人格：${primary.name}（${primary.alias}）。\n离谱选项命中率超过 70%，系统宣布你已超纲。`,
+      `测到最后系统沉默了，因为你是 ${primary.name}。\n友情说明：这里说的“超雄”只是互联网人格梗。`,
+      `今日身份不是普通抽象选手，是 ${primary.name}。\n恭喜你把测试直接玩成了隐藏剧情。`,
+    ];
+  }
+
+  return [
+    `我是 ${primary.name}（${code}）。\n我不讲复杂逻辑，我讲我的互联网气场。\n抽象指数 ${abstractIndex}% ，今天的群聊我负责出梗。`,
+    `测出来我是 ${primary.name}。\n别问准不准，问就是太像了。\n${primary.dangerNote}`,
+    `${primary.name} 已上线。\n人格别名：${primary.alias}。\n如果你也测出来离谱的，记得发给我对比。`,
+  ];
+}
+
+function buildCompareOptions(primary, scores) {
+  const others = enrichedPersonalities.filter((item) => item.id !== primary.id);
+  const sorted = [...others].sort((a, b) => {
+    const diffA = Math.abs(scores.social - a.coreTraits.social) + Math.abs(scores.logic - a.coreTraits.logic);
+    const diffB = Math.abs(scores.social - b.coreTraits.social) + Math.abs(scores.logic - b.coreTraits.logic);
+    return diffB - diffA;
+  }).slice(0, 3);
+
+  return sorted.map((friend) => {
+    const summary = `${primary.name} x ${friend.name}`;
+    const conclusion = scores.social >= friend.coreTraits.social
+      ? `结论：你负责输出和带气氛，${friend.alias} 负责补刀、观察，或者在关键时刻把场子接住。`
+      : `结论：${friend.alias} 负责往前冲，你负责旁观、分析，或者默默记录这场离谱现场。`;
+    return { friend, summary, conclusion };
+  });
+}
+
+function buildShareText() {
+  const link = location.protocol === "http:" || location.protocol === "https:" ? `\n来测：${location.href}` : "";
+  return `${state.result.aiCopies[state.aiCopyIndex % state.result.aiCopies.length]}\n\n我的人格：${state.result.primary.name}（${state.result.code}）${link}`;
+}
+
+function renderResult() {
+  const { primary, secondary, code, normalized, abstractIndex, hiddenLabel, shareIndex, savedAt } = state.result;
+  renderAvatar(primary.id);
+  setText(elements.resultCode, code);
+  setText(elements.resultCodeDetail, codeToText(code));
+  setText(elements.resultName, primary.name);
+  setText(elements.resultAlias, `${primary.alias} · ${primary.shortCode}`);
+  setText(elements.resultDescription, primary.description);
+  setHtml(elements.resultTags, primary.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join(""));
+  setText(elements.dangerNote, primary.dangerNote);
+  setText(elements.memeLevel, `梗感 ${primary.memeLevel}`);
+  setText(elements.abstractIndex, `${abstractIndex}%`);
+  setText(elements.hiddenPersona, hiddenLabel);
+  setText(elements.shortCode, primary.shortCode);
+  setText(elements.secondaryMatch, secondary?.name ?? "");
+  setText(elements.shareIndex, `${shareIndex}%`);
+  setText(elements.lastSavedAt, savedAt);
+  renderMetrics(normalized);
+  state.aiCopyIndex = 0;
+  state.compareIndex = 0;
+  renderAiCopy();
+  renderCompare();
+  renderRanking(primary.id);
+}
+
+function renderCompare() {
+  if (!elements.duoMatch || !state.result?.compareOptions?.length) return;
+  const item = state.result.compareOptions[state.compareIndex % state.result.compareOptions.length];
+  setHtml(elements.duoMatch, `
+    <strong class="duo-title">你：${escapeHtml(state.result.primary.name)} x 朋友：${escapeHtml(item.friend.name)}</strong>
+    <p class="duo-sub">${escapeHtml(item.summary)}</p>
+    <p>${escapeHtml(item.conclusion)}</p>
+  `);
+}
+
+function unlockHiddenPersona() {
+  setStoredValue(STORAGE_KEYS.hidden, "1");
+  if (state.result) {
+    state.result.hiddenLabel = "终极抽象体";
+    setText(elements.hiddenPersona, "终极抽象体");
+  }
 }

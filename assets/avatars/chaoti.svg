@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="超体">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f7f4ea"/>
+      <stop offset="100%" stop-color="#ece6d8"/>
+    </linearGradient>
+    <linearGradient id="coat" x1="0" x2="1">
+      <stop offset="0%" stop-color="#4d8f7a"/>
+      <stop offset="100%" stop-color="#2f5f53"/>
+    </linearGradient>
+    <linearGradient id="crown" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f6d77b"/>
+      <stop offset="100%" stop-color="#c9a24b"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="320" rx="36" fill="url(#bg)"/>
+  <ellipse cx="162" cy="274" rx="84" ry="18" fill="#d7d1c2"/>
+  <polygon points="122,42 144,18 162,42 182,14 206,42 198,70 126,70" fill="url(#crown)"/>
+  <polygon points="106,76 138,52 218,58 236,100 206,112 122,106" fill="#505560"/>
+  <polygon points="98,100 142,76 222,86 224,154 150,174 98,146" fill="#f0d6c3"/>
+  <polygon points="160,82 222,86 224,154 168,164" fill="#e4c3a9"/>
+  <polygon points="90,110 102,136 86,156 64,134" fill="#5f6470"/>
+  <polygon points="226,110 250,136 236,160 216,142" fill="#5f6470"/>
+  <polygon points="118,150 210,146 224,232 104,232" fill="url(#coat)"/>
+  <polygon points="118,150 164,146 164,232 104,232" fill="#67a68f" opacity=".5"/>
+  <polygon points="92,150 118,150 108,220 78,214" fill="#4d8f7a"/>
+  <polygon points="210,146 236,154 248,216 220,220" fill="#356858"/>
+  <polygon points="126,232 164,232 154,286 116,286" fill="#3d7565"/>
+  <polygon points="164,232 224,232 210,286 164,286" fill="#2f5f53"/>
+  <polygon points="108,284 158,284 148,302 98,300" fill="#24483f"/>
+  <polygon points="170,284 220,284 212,304 160,302" fill="#1f3f38"/>
+  <polygon points="126,106 158,106 148,126 118,122" fill="#ffffff" opacity=".96"/>
+  <polygon points="158,106 202,110 184,136 148,126" fill="#ffffff" opacity=".9"/>
+  <polygon points="126,88 164,66 164,168 132,164" fill="#fff" opacity=".08"/>
+  <polygon points="118,88 156,76 144,62 106,76" fill="#676d79"/>
+  <polygon points="152,78 180,108 208,82 182,70" fill="#3a3f49" opacity=".9"/>
+  <circle cx="136" cy="120" r="5" fill="#253530"/>
+  <circle cx="182" cy="126" r="5" fill="#253530"/>
+  <path d="M126 142 Q154 126 186 136" fill="none" stroke="#253530" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="234,56 246,78 270,82 252,96 258,120 234,108 212,120 216,96 198,82 222,78" fill="#f4bf63"/>
+  <text x="210" y="206" font-size="18" font-family="Noto Sans SC, sans-serif" fill="#eef8f2">MAX</text>
+</svg>
