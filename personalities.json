@@ -1,0 +1,148 @@
+{
+  "version": "2.0.0",
+  "personalities": [
+    {
+      "id": "jiahao",
+      "name": "嘉豪型抽象圣体",
+      "shortCode": "JH-SB",
+      "alias": "混乱哲学家",
+      "memeLevel": "S",
+      "tags": ["抽象", "跳跃", "离谱但自洽"],
+      "description": "表达跳跃、逻辑飘忽，但气势很足。越说越抽象，越抽象越有记忆点。",
+      "dangerNote": "发言前建议先过一遍人类语言转换器。",
+      "coreTraits": { "emotion": 58, "social": 72, "logic": 18, "selfView": 84, "attachment": 46 }
+    },
+    {
+      "id": "emo",
+      "name": "深夜网抑云型",
+      "shortCode": "YY-404",
+      "alias": "emo文学型",
+      "memeLevel": "A",
+      "tags": ["敏感", "内耗", "共情强"],
+      "description": "情绪细腻，容易被细节触动。白天正常，夜晚自动进入情绪模式。",
+      "dangerNote": "凌晨两点容易触发被动技能：无限循环回忆。",
+      "coreTraits": { "emotion": 88, "social": 34, "logic": 42, "selfView": 36, "attachment": 82 }
+    },
+    {
+      "id": "clown",
+      "name": "破防整活型",
+      "shortCode": "PF-XD",
+      "alias": "小丑型",
+      "memeLevel": "S",
+      "tags": ["自嘲", "整活", "乐子人"],
+      "description": "擅长把破防变成笑点，一边受伤一边整活。",
+      "dangerNote": "你不是没事，你只是把事做成段子了。",
+      "coreTraits": { "emotion": 72, "social": 76, "logic": 45, "selfView": 20, "attachment": 63 }
+    },
+    {
+      "id": "observer",
+      "name": "冷脸审判官型",
+      "shortCode": "LL-SP",
+      "alias": "高冷观察者",
+      "memeLevel": "B",
+      "tags": ["冷静", "旁观", "理性"],
+      "description": "更喜欢观察而不是参与，看透再行动。",
+      "dangerNote": "你已经看懂了，但不打算说。",
+      "coreTraits": { "emotion": 22, "social": 28, "logic": 86, "selfView": 68, "attachment": 24 }
+    },
+    {
+      "id": "lickdog",
+      "name": "上头供养型",
+      "shortCode": "ST-GY",
+      "alias": "舔狗型",
+      "memeLevel": "S",
+      "tags": ["上头", "付出", "重感情"],
+      "description": "容易投入过多情绪，对喜欢的人非常认真。",
+      "dangerNote": "嘴上说算了，行动上还在加载中。",
+      "coreTraits": { "emotion": 78, "social": 74, "logic": 30, "selfView": 26, "attachment": 94 }
+    },
+    {
+      "id": "explosive",
+      "name": "一点就炸型",
+      "shortCode": "YD-ZA",
+      "alias": "爆炸情绪型",
+      "memeLevel": "A",
+      "tags": ["上头", "冲动", "真实"],
+      "description": "情绪反应快，表达直接，开心和破防都很明显。",
+      "dangerNote": "当前情绪波动较大，请谨慎发言。",
+      "coreTraits": { "emotion": 96, "social": 66, "logic": 26, "selfView": 62, "attachment": 70 }
+    },
+    {
+      "id": "bailan",
+      "name": "随地躺平型",
+      "shortCode": "SD-TP",
+      "alias": "佛系摆烂型",
+      "memeLevel": "A",
+      "tags": ["躺平", "随缘", "低能耗"],
+      "description": "对很多事保持随缘态度，不爱内耗。",
+      "dangerNote": "系统检测到你已进入省电模式。",
+      "coreTraits": { "emotion": 24, "social": 36, "logic": 48, "selfView": 52, "attachment": 20 }
+    },
+    {
+      "id": "analyst",
+      "name": "赛博军师型",
+      "shortCode": "SB-JS",
+      "alias": "理性分析型",
+      "memeLevel": "A",
+      "tags": ["分析", "逻辑", "拆解"],
+      "description": "习惯分析问题，是朋友圈常驻军师。",
+      "dangerNote": "建议停止分析，直接生活。",
+      "coreTraits": { "emotion": 26, "social": 54, "logic": 95, "selfView": 70, "attachment": 40 }
+    },
+    {
+      "id": "repeater",
+      "name": "梗王复读姬型",
+      "shortCode": "GW-FD",
+      "alias": "复读机型",
+      "memeLevel": "S",
+      "tags": ["复读", "洗脑", "传播"],
+      "description": "擅长放大梗，让一句话变成全场共识。",
+      "dangerNote": "重复是力量，重复是信仰。",
+      "coreTraits": { "emotion": 60, "social": 80, "logic": 32, "selfView": 56, "attachment": 42 }
+    },
+    {
+      "id": "airman",
+      "name": "隐身潜水怪型",
+      "shortCode": "YS-QS",
+      "alias": "空气人型",
+      "memeLevel": "B",
+      "tags": ["潜水", "低调", "安静"],
+      "description": "在线但安静，存在感低但观察细致。",
+      "dangerNote": "你一直在，只是没人触发你。",
+      "coreTraits": { "emotion": 34, "social": 12, "logic": 58, "selfView": 38, "attachment": 32 }
+    },
+    {
+      "id": "trend",
+      "name": "全网冲浪型",
+      "shortCode": "QW-CL",
+      "alias": "跟风怪型",
+      "memeLevel": "A",
+      "tags": ["热点", "跟风", "节奏感"],
+      "description": "对热点极其敏感，总能第一时间参与。",
+      "dangerNote": "热点刚起，你已经在路上。",
+      "coreTraits": { "emotion": 62, "social": 78, "logic": 44, "selfView": 60, "attachment": 50 }
+    },
+    {
+      "id": "overthinker",
+      "name": "脑内加戏型",
+      "shortCode": "NN-JX",
+      "alias": "过度解读型",
+      "memeLevel": "S",
+      "tags": ["脑补", "内耗", "细节控"],
+      "description": "一句话能脑补完整剧情，容易想太多。",
+      "dangerNote": "当前剧情由你一人主演并加戏完成。",
+      "coreTraits": { "emotion": 82, "social": 30, "logic": 60, "selfView": 34, "attachment": 76 }
+    },
+    {
+      "id": "switcher",
+      "name": "变脸切号型",
+      "shortCode": "BL-QH",
+      "alias": "人设切换型",
+      "memeLevel": "A",
+      "tags": ["多面", "适配", "社交高手"],
+      "description": "在不同场景切换不同人格，适应能力极强。",
+      "dangerNote": "当前人格已切换，请注意版本号。",
+      "coreTraits": { "emotion": 54, "social": 74, "logic": 68, "selfView": 64, "attachment": 48 }
+    }
+  ]
+}

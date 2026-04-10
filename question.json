@@ -1,0 +1,375 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "title": "别人半天不回你消息，你会？",
+      "options": [
+        {
+          "text": "分析他是不是在忙",
+          "weights": { "emotion": -1, "social": -1, "logic": 2, "selfView": 1, "attachment": -1 }
+        },
+        {
+          "text": "有点难受但忍着",
+          "weights": { "emotion": 2, "social": -1, "logic": 0, "selfView": -1, "attachment": 2 }
+        },
+        {
+          "text": "发个表情缓解尴尬",
+          "weights": { "emotion": 1, "social": 2, "logic": 0, "selfView": -1, "attachment": 1 }
+        },
+        {
+          "text": "无所谓，干别的",
+          "weights": { "emotion": -2, "social": -2, "logic": 1, "selfView": 1, "attachment": -2 }
+        },
+        {
+          "text": "开始脑补各种可能",
+          "weights": { "emotion": 2, "social": -1, "logic": 1, "selfView": -1, "attachment": 2 }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "群聊突然安静下来，你会？",
+      "options": [
+        {
+          "text": "出来总结一下刚刚的话题",
+          "weights": { "emotion": 0, "social": 1, "logic": 2, "selfView": 2, "attachment": 0 }
+        },
+        {
+          "text": "继续发点梗活跃气氛",
+          "weights": { "emotion": 1, "social": 2, "logic": -1, "selfView": 1, "attachment": 1 }
+        },
+        {
+          "text": "默默潜水",
+          "weights": { "emotion": -1, "social": -2, "logic": 0, "selfView": -1, "attachment": -1 }
+        },
+        {
+          "text": "发一句很抽象的话",
+          "weights": { "emotion": 1, "social": 2, "logic": -2, "selfView": 2, "attachment": 0 }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "你更像哪种表达方式？",
+      "options": [
+        {
+          "text": "逻辑清晰、条理分明",
+          "weights": { "emotion": -1, "social": 0, "logic": 2, "selfView": 1, "attachment": 0 }
+        },
+        {
+          "text": "想到什么说什么",
+          "weights": { "emotion": 2, "social": 1, "logic": -2, "selfView": 2, "attachment": 0 }
+        },
+        {
+          "text": "尽量不说",
+          "weights": { "emotion": -1, "social": -2, "logic": 0, "selfView": -1, "attachment": -1 }
+        },
+        {
+          "text": "用玩笑表达",
+          "weights": { "emotion": 1, "social": 2, "logic": 0, "selfView": -2, "attachment": 1 }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "看到别人情绪崩溃，你会？",
+      "options": [
+        {
+          "text": "安慰对方",
+          "weights": { "emotion": 2, "social": 1, "logic": 0, "selfView": 0, "attachment": 2 }
+        },
+        {
+          "text": "分析问题原因",
+          "weights": { "emotion": -1, "social": 0, "logic": 2, "selfView": 1, "attachment": 0 }
+        },
+        {
+          "text": "不知道说啥",
+          "weights": { "emotion": 0, "social": -1, "logic": 0, "selfView": -1, "attachment": 0 }
+        },
+        {
+          "text": "讲个段子缓解",
+          "weights": { "emotion": 1, "social": 2, "logic": -1, "selfView": -1, "attachment": 1 }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "面对压力时你更可能？",
+      "options": [
+        {
+          "text": "理性拆解问题",
+          "weights": { "emotion": -2, "social": 0, "logic": 2, "selfView": 1, "attachment": 0 }
+        },
+        {
+          "text": "情绪爆发",
+          "weights": { "emotion": 2, "social": 1, "logic": -1, "selfView": 1, "attachment": 1 }
+        },
+        {
+          "text": "摆烂不管",
+          "weights": { "emotion": -1, "social": -1, "logic": 0, "selfView": 0, "attachment": -2 }
+        },
+        {
+          "text": "自嘲一下",
+          "weights": { "emotion": 1, "social": 1, "logic": 0, "selfView": -2, "attachment": 1 }
+        }
+      ]
+    },
+
+    {
+      "id": 6,
+      "title": "你刷短视频更容易被什么吸引？",
+      "options": [
+        {
+          "text": "有逻辑的内容",
+          "weights": { "emotion": -1, "social": 0, "logic": 2, "selfView": 1, "attachment": 0 }
+        },
+        {
+          "text": "抽象搞笑",
+          "weights": { "emotion": 2, "social": 2, "logic": -2, "selfView": 2, "attachment": 0 }
+        },
+        {
+          "text": "情绪共鸣",
+          "weights": { "emotion": 2, "social": 0, "logic": 0, "selfView": -1, "attachment": 2 }
+        },
+        {
+          "text": "无脑轻松",
+          "weights": { "emotion": -1, "social": 0, "logic": -1, "selfView": 0, "attachment": -1 }
+        }
+      ]
+    },
+
+    {
+      "id": 7,
+      "title": "你在朋友眼里更像？",
+      "options": [
+        {
+          "text": "理性军师",
+          "weights": { "emotion": -1, "social": 0, "logic": 2, "selfView": 1, "attachment": 0 }
+        },
+        {
+          "text": "气氛担当",
+          "weights": { "emotion": 1, "social": 2, "logic": -1, "selfView": 1, "attachment": 1 }
+        },
+        {
+          "text": "透明人",
+          "weights": { "emotion": -1, "social": -2, "logic": 0, "selfView": -1, "attachment": -1 }
+        },
+        {
+          "text": "情绪型选手",
+          "weights": { "emotion": 2, "social": 1, "logic": -1, "selfView": 0, "attachment": 2 }
+        }
+      ]
+    },
+
+    {
+      "id": 8,
+      "title": "你会不会重复一个梗很多次？",
+      "options": [
+        {
+          "text": "不会",
+          "weights": { "emotion": 0, "social": -1, "logic": 1, "selfView": 1, "attachment": 0 }
+        },
+        {
+          "text": "偶尔",
+          "weights": { "emotion": 1, "social": 1, "logic": 0, "selfView": 0, "attachment": 0 }
+        },
+        {
+          "text": "会刷屏",
+          "weights": { "emotion": 2, "social": 2, "logic": -1, "selfView": 1, "attachment": 0 }
+        }
+      ]
+    },
+
+    {
+      "id": 9,
+      "title": "你对热点的态度是？",
+      "options": [
+        {
+          "text": "马上参与",
+          "weights": { "emotion": 1, "social": 2, "logic": 0, "selfView": 1, "attachment": 0 }
+        },
+        {
+          "text": "观望一下",
+          "weights": { "emotion": 0, "social": 0, "logic": 1, "selfView": 0, "attachment": 0 }
+        },
+        {
+          "text": "完全不关心",
+          "weights": { "emotion": -1, "social": -1, "logic": 1, "selfView": 0, "attachment": -1 }
+        }
+      ]
+    },
+
+    {
+      "id": 10,
+      "title": "你会不会在脑子里反复想一件事？",
+      "options": [
+        {
+          "text": "经常",
+          "weights": { "emotion": 2, "social": -1, "logic": 1, "selfView": -1, "attachment": 2 }
+        },
+        {
+          "text": "偶尔",
+          "weights": { "emotion": 1, "social": 0, "logic": 0, "selfView": 0, "attachment": 1 }
+        },
+        {
+          "text": "几乎不会",
+          "weights": { "emotion": -1, "social": 0, "logic": 1, "selfView": 1, "attachment": -1 }
+        }
+      ]
+    },
+
+    {
+      "id": 11,
+      "title": "你更习惯哪种社交方式？",
+      "options": [
+        {
+          "text": "主动聊天",
+          "weights": { "emotion": 1, "social": 2, "logic": 0, "selfView": 1, "attachment": 1 }
+        },
+        {
+          "text": "别人找我再聊",
+          "weights": { "emotion": 0, "social": -1, "logic": 0, "selfView": 0, "attachment": 0 }
+        },
+        {
+          "text": "尽量避免",
+          "weights": { "emotion": -1, "social": -2, "logic": 0, "selfView": -1, "attachment": -1 }
+        }
+      ]
+    },
+
+    {
+      "id": 12,
+      "title": "你更容易？",
+      "options": [
+        {
+          "text": "情绪上头",
+          "weights": { "emotion": 2, "social": 1, "logic": -1, "selfView": 1, "attachment": 2 }
+        },
+        {
+          "text": "保持冷静",
+          "weights": { "emotion": -2, "social": 0, "logic": 2, "selfView": 1, "attachment": -1 }
+        }
+      ]
+    },
+
+    {
+      "id": 13,
+      "title": "你会不会根据场合换性格？",
+      "options": [
+        {
+          "text": "会明显切换",
+          "weights": { "emotion": 1, "social": 2, "logic": 1, "selfView": 1, "attachment": 0 }
+        },
+        {
+          "text": "基本不会",
+          "weights": { "emotion": 0, "social": -1, "logic": 0, "selfView": 0, "attachment": 0 }
+        }
+      ]
+    },
+
+    {
+      "id": 14,
+      "title": "你更看重？",
+      "options": [
+        {
+          "text": "逻辑正确",
+          "weights": { "emotion": -1, "social": 0, "logic": 2, "selfView": 1, "attachment": 0 }
+        },
+        {
+          "text": "情绪舒服",
+          "weights": { "emotion": 2, "social": 1, "logic": -1, "selfView": 0, "attachment": 2 }
+        }
+      ]
+    },
+
+    {
+      "id": 15,
+      "title": "你会不会因为别人一句话不开心？",
+      "options": [
+        {
+          "text": "会",
+          "weights": { "emotion": 2, "social": 0, "logic": 0, "selfView": -1, "attachment": 2 }
+        },
+        {
+          "text": "不会",
+          "weights": { "emotion": -1, "social": 0, "logic": 1, "selfView": 1, "attachment": -1 }
+        }
+      ]
+    },
+
+    {
+      "id": 16,
+      "title": "你更像哪种人？",
+      "options": [
+        {
+          "text": "喜欢整活",
+          "weights": { "emotion": 2, "social": 2, "logic": -1, "selfView": 1, "attachment": 1 }
+        },
+        {
+          "text": "喜欢安静",
+          "weights": { "emotion": -1, "social": -2, "logic": 0, "selfView": 0, "attachment": -1 }
+        }
+      ]
+    },
+
+    {
+      "id": 17,
+      "title": "遇到喜欢的人你会？",
+      "options": [
+        {
+          "text": "主动靠近",
+          "weights": { "emotion": 2, "social": 2, "logic": 0, "selfView": 1, "attachment": 2 }
+        },
+        {
+          "text": "保持距离",
+          "weights": { "emotion": 0, "social": -1, "logic": 1, "selfView": 0, "attachment": -1 }
+        }
+      ]
+    },
+
+    {
+      "id": 18,
+      "title": "你更容易？",
+      "options": [
+        {
+          "text": "拖延",
+          "weights": { "emotion": 0, "social": -1, "logic": -1, "selfView": 0, "attachment": -1 }
+        },
+        {
+          "text": "执行",
+          "weights": { "emotion": 0, "social": 1, "logic": 2, "selfView": 1, "attachment": 0 }
+        }
+      ]
+    },
+
+    {
+      "id": 19,
+      "title": "你对自己评价更像？",
+      "options": [
+        {
+          "text": "还不错",
+          "weights": { "emotion": 0, "social": 0, "logic": 0, "selfView": 2, "attachment": 0 }
+        },
+        {
+          "text": "有点小丑",
+          "weights": { "emotion": 1, "social": 1, "logic": 0, "selfView": -2, "attachment": 1 }
+        }
+      ]
+    },
+
+    {
+      "id": 20,
+      "title": "你更偏向哪种状态？",
+      "options": [
+        {
+          "text": "热闹参与",
+          "weights": { "emotion": 1, "social": 2, "logic": 0, "selfView": 1, "attachment": 1 }
+        },
+        {
+          "text": "安静旁观",
+          "weights": { "emotion": -1, "social": -2, "logic": 1, "selfView": 0, "attachment": -1 }
+        }
+      ]
+    }
+  ]
+}
