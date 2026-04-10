@@ -744,7 +744,7 @@ async function nativeShare() {
   try {
     const blob = await buildShareBlob();
     const shareData = {
-      title: "ABTI 抽象人格测试",
+      title: "ABTI",
       text: buildShareText(),
     };
 
@@ -822,7 +822,7 @@ async function drawShareCanvas() {
 
   context.fillStyle = "#789289";
   context.font = '500 32px "Space Grotesk", "Noto Sans SC", sans-serif';
-  context.fillText("ABTI 抽象人格测试", 120, 144);
+  context.fillText("ABTI", 120, 144);
 
   context.fillStyle = "#203832";
   context.font = '700 156px "Space Grotesk", "Noto Sans SC", sans-serif';
